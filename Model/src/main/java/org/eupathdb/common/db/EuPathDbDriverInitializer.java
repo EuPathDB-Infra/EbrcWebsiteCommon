@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.gusdb.fgputil.db.platform.SupportedPlatform;
 import org.gusdb.fgputil.db.pool.ConnectionPoolConfig;
 import org.gusdb.fgputil.db.pool.DbDriverInitializer;
 import org.gusdb.fgputil.db.runner.SQLRunner;
@@ -55,8 +56,10 @@ public class EuPathDbDriverInitializer implements DbDriverInitializer {
     if (dbConfig instanceof ModelConfigAppDB) {
       connection.setAutoCommit(true);
       ModelConfigAppDB appDbConfig = (ModelConfigAppDB)dbConfig;
-      closeDbLink(connection, appDbConfig.getUserDbLink());
-      closeDbLink(connection, appDbConfig.getAcctDbLink());
+      if (appDbConfig.getPlatformEnum() == SupportedPlatform.ORACLE) {
+        closeDbLink(connection, appDbConfig.getUserDbLink());
+        closeDbLink(connection, appDbConfig.getAcctDbLink());
+      }
     }
     // set auto-commit back to what it was
     connection.setAutoCommit(incomingAutoCommit);

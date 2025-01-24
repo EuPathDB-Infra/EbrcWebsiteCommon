@@ -34,24 +34,27 @@ _host_frontends:
   w2: ''
 
 _userdb_link_map:
-  apicomms:    prods.login_comment
-  apicommn:    prodn.login_comment
-  apicommbetas: betas.login_comment
-  apicommbetan: betan.login_comment
-  apicommdevs: devs.login_comment
-  apicommdevn: devn.login_comment
+  apicomms:       prods.login_comment
+  apicommn:       prodn.login_comment
+  apicommbetas:   betas.login_comment
+  apicommbetan:   betan.login_comment
+  apicommdevs:    devs.login_comment
+  apicommdevn:    devn.login_comment
+  apicommd:       devn.login_comment  # local dev
   apicommlegacys: legacys.login_comment
   apicommlegacyn: legacyn.login_comment
-  cecomms:     ceprods.login_comment
-  cecommn:     ceprodn.login_comment
-  cecommdevs:  cedevs.login_comment
-  cecommdevn:  cedevn.login_comment
-  userdb:      vm.userdb
+  cecomms:        ceprods.login_comment
+  cecommn:        ceprodn.login_comment
+  cecommdevs:     cedevs.login_comment
+  cecommdevn:     cedevn.login_comment
+  cecommd:        cedevn.login_comment  # local dev
+  userdb:         vm.userdb
 
 _acctdb_link_map:
   acctdbn: acctdbN.profile
   acctdbs: acctdbS.profile
-  acctdb:  vm.acctdb # savm
+  acctdb: acctdbN.profile  # local dev
+#  acctdb:  vm.acctdb # savm
 
 modelconfig_modelName: =c= WDK model name, e.g. ToxoDB
 
